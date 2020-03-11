@@ -1,5 +1,5 @@
 var Documentation = Object.getPrototypeOf(app).Documentation = new Component("documentation");
-Documentation.debug = true;
+// Documentation.debug = true;
 Documentation.createdAt      = "2.0.0";
 Documentation.lastUpdate     = "2.0.0";
 Documentation.version        = "1";
