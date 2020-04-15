@@ -1,4 +1,4 @@
-var Dashboard = module.exports = function(app){
+var Documentation = module.exports = function(app){
 	Documentation = Object.getPrototypeOf(app).Documentation = new app.Component("documentation");
 	// Documentation.debug = true;
 	Documentation.createdAt      = "2.0.0";
@@ -14,7 +14,7 @@ var Dashboard = module.exports = function(app){
 		var doc = this;
 		var html = {nav : '', content : ''};
 		for(var manual of arrManuals){
-			html.nav += '<button class="btn-sm btn-bg-secondary" data-manual="'+manual+'"">'+utils.capitalize(manual)+'</button> ';
+			html.nav += '<button class="btn-sm btn-bg-secondary" data-manual="'+manual+'"">'+app.utils.capitalize(manual)+'</button> ';
 			html.content += '<div class="tab block-std p-all-x2">'
 						+ require('mustache-loader!html-loader?interpolate!./templates/manual_'+manual+'.html')()
 						+ '</div>';
