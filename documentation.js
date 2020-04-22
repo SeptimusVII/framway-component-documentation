@@ -1,5 +1,5 @@
-var Documentation = module.exports = function(app){
-	Documentation = Object.getPrototypeOf(app).Documentation = new app.Component("documentation");
+module.exports = function(app){
+	var Documentation = Object.getPrototypeOf(app).Documentation = new app.Component("documentation");
 	// Documentation.debug = true;
 	Documentation.createdAt      = "2.0.0";
 	Documentation.lastUpdate     = "2.0.0";
