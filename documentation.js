@@ -8,7 +8,7 @@ module.exports = function(app){
 	// Documentation.loadingMsg     = "This message will display in the console when component will be loaded.";
 
 	var arrManuals = ['flex','grid','opacity','margin-padding'];
-	// if(app.components.includes('modalFW'))
+	if(app.components.includes('modalFW'))
 	    arrManuals.push('modalFW');
 	Documentation.prototype.onCreate = function(){
 		var doc = this;
