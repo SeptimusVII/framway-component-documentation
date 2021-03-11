@@ -7,7 +7,7 @@ module.exports = function(app){
 	Documentation.factoryExclude = true;
 	// Documentation.loadingMsg     = "This message will display in the console when component will be loaded.";
 
-	var arrManuals = ['utilities','buttons','backgrounds','borders','margin-padding','flex','grid','opacity','images'];
+	var arrManuals = ['utilities','buttons','backgrounds','borders','margin-padding','flex','grid','opacity','images','forms'];
 	if(app.components.includes('modalFW'))
 	    arrManuals.push('modalFW');
 	Documentation.prototype.onCreate = function(){
