@@ -38,7 +38,10 @@ module.exports = function(app){
 		if (typeof app.updateUrlNavigation != 'undefined') {
 			doc.$body.find('.tabs__nav button').on('click',function(){
 				if (doc.$el.parent('.tab').hasClass('active'))
-					setTimeout(function(){app.updateUrlNavigation(doc.getNavState());})
+					setTimeout(function(){
+						if(app.debug) console.log('app.updateUrlNavigation from documentation');
+						app.updateUrlNavigation(doc.getNavState());
+					})
 			});
 		}
 	}
