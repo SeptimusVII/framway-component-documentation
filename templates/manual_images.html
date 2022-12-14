@@ -14,10 +14,10 @@
 <div class="m-bottom">
   <ul class="m-top">
     <li class="m-bottom">
-      img elements need to be wrapped in a div with the <span class="tag">img-container</span> class. This class get by default 100% of the parent's width. You can counter this by adding a width utility class.
+      img elements need to be wrapped in a div with the <span class="tag">img-container</span> class. This class get by default 100% of the parent's width. You can counter this by adding a <span class="tag">width</span> utility class.
     </li>
-    <li>
-    	To apply a specific ratio to the image, add a ratio class to the <span class="tag">img-container</span>:
+    <li class="m-bottom">
+    	To apply a specific ratio to the picture, add a ratio class to the <span class="tag">img-container</span>:
     	<ul>
     		<li>r_16-9</li>
     		<li>r_2-1</li>
@@ -26,13 +26,60 @@
     		<li>r_4-3</li>
     	</ul>
     </li>
-    <li>
+    <li class="m-bottom">
+      By default, pictures in a <span class="tag">img-container</span> will have an <span class="tag">object-fit</span> css property set to <span class="tag">cover</span>. To change this, add a fitting class: <br>
+      fit--<span class="tag">contain|scaledown|unset|none</span>      
+    </li>
+    <li class="m-bottom">
+      A picture's natural ratio can differ from its container's, resulting in truncated content. For exemple, if you set a squared picture (ratio 1:1) in an <span class="tag">img-container</span> with a 16:9 ratio, the top and bottom part of the picture will be cropped to fit the container's width:<br>
+      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
+        <div>
+          <div class="img-container r_1-1">
+            <img class="" src="https://picsum.photos/300/300" alt="">
+          </div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9"><img src="https://picsum.photos/300/300" alt=""></div>
+          <div class="ft-i txt-center ft-0-8-em">picture doesn't fit the container, so its top and bottom are cropped to stay centered</div>
+        </div>
+      </div>
+      By default, pictures are centered in their container. You can alter the picture positionning by adding a vertical and/or an horizontal position class:
+      img--<span class="tag">top|center|bottom</span> img--<span class="tag">left|center|right</span> <br>
+      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
+        <div>
+          <div class="img-container r_1-1">
+            <img class="" src="https://picsum.photos/300/300" alt="">
+          </div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9 img--bottom"><img src="https://picsum.photos/300/300" alt=""></div>
+          <div class="ft-i txt-center ft-0-8-em">with img--bottom class</div>
+        </div>
+      </div>
+      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
+        <div>
+          <div class="img-container r_1-1">
+            <img class="" src="https://picsum.photos/300/300" alt="">
+          </div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9 img--top"><img src="https://picsum.photos/300/300" alt=""></div>
+          <div class="ft-i txt-center ft-0-8-em">with img--top class</div>
+        </div>
+      </div>
+    </li>
+    <li class="m-bottom">
+      Pictures can be rounded by adding the <span class="tag">rounded-circle</span> class to the container. Be aware that this will force a 1:1 ratio on the picture:
+      <div class="img-container r_1-1 w-15 r_16-9 m-y-x3 rounded-circle center"><img src="https://picsum.photos/300/300" alt=""></div>
+    </li>
+    <li class="m-bottom">
+      <span class="tag">grayscale</span> class add a basic grey filter to the picture
+    </li>
+    <li class="m-bottom">
     	You can define basic effects on hover, by adding an effect class to the <span class="tag">img-container</span>:
     	<ul>
-    		<li>zoomin</li>
-    		<li>zoomout (doesn't work with zoomin)</li>
-    		<li>fadetocolor</li>
-    		<li>fadetogrey (doesn't work with fadetocolor)</li>
+    		<li><span class="tag">zoomin</span><span class="tag">zoomout</span></li>
+    		<li><span class="tag">fadetocolor</span><span class="tag">fadetogrey</span></li>
     	</ul>
     </li>
   </ul>
