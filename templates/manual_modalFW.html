@@ -50,15 +50,16 @@
 <p>
   Modals can also be created from a javascript object, allowing more options and usages, with callbacks and events (see the paramaters section for details).
 </p>
+
 <div class="block-std">
-  <!-- <script>
+  <script>
     $(function(){
       var modalScript = new app.ModalFW({
         name : 'sampleModal_3',
         content: 'Modal created from a javascript object :)',
       });
     });
-  </script> -->
+  </script>
   <button data-modal="sampleModal_3" class="m-bottom">Open</button>
   <pre>
     <script>
@@ -70,6 +71,21 @@
       });
     </script>
     <button data-modal="sampleModal_3">Open</button>
+  </pre>
+</div>
+<h2>Galleries</h2>
+<p>
+  Multiple modals can be linked together, allowing navigation between them. This is done by adding a same data-gallery attribute (see Parameters) to the modals you want to link.
+</p>
+<p>Multiple galleries can live in the same page.</p>
+<div class="block-std">
+  <button data-modal="sampleModal_4" data-gallery="sampleGallery" data-content="Modal's content 1">Modal 1</button>
+  <button data-modal="sampleModal_5" data-gallery="sampleGallery" data-content="Modal's content 2">Modal 2</button>
+  <button data-modal="sampleModal_6" data-gallery="sampleGallery" data-content="Modal's content 3">Modal 3</button>
+  <pre class="m-top">
+    <button data-modal="sampleModal_4" data-gallery="sampleGallery" data-content="Modal's content 1">Modal 1</button>
+    <button data-modal="sampleModal_5" data-gallery="sampleGallery" data-content="Modal's content 2">Modal 2</button>
+    <button data-modal="sampleModal_6" data-gallery="sampleGallery" data-content="Modal's content 3">Modal 3</button>
   </pre>
 </div>
 
@@ -152,6 +168,14 @@
     <td class="txt-center">Yes</td>
   </tr>
   <tr>
+    <th class="txt-center">gallery</th>
+    <td>String</td>
+    <td>Gallery name, used to group multiple modals and allowing navigation between them</td>
+    <td class="txt-center">Yes</td>
+    <td class="txt-center">Yes</td>
+    <td class="txt-center">Yes</td>
+  </tr>
+  <tr>
     <th class="txt-center">blnAutoload</th>
     <td>Bool<br> (default true)</td>
     <td>
@@ -176,6 +200,22 @@
     <td>Add a button to the modal's header. Allow the modal's content to be refreshed</td>
     <td class="txt-center">Yes<br><span class="tag">data-refresh</span></td>
     <td class="txt-center">Yes<br><span class="tag">data-refresh</span></td>
+    <td class="txt-center">Yes</td>
+  </tr>
+  <tr>
+    <th class="txt-center">blnDismiss</th>
+    <td>Bool<br> (default true)</td>
+    <td>Allow the modal to be closed by clicking on the backdrop</td>
+    <td class="txt-center">Yes<br><span class="tag">data-dismiss</span></td>
+    <td class="txt-center">Yes<br><span class="tag">data-dismiss</span></td>
+    <td class="txt-center">Yes</td>
+  </tr>
+  <tr>
+    <th class="txt-center">blnAutodestroy</th>
+    <td>Bool<br> (default false)</td>
+    <td>Automatically destroy the modal when closing it</td>
+    <td class="txt-center">Yes<br><span class="tag">data-autodestroy</span></td>
+    <td class="txt-center">Yes<br><span class="tag">data-autodestroy</span></td>
     <td class="txt-center">Yes</td>
   </tr>
   <tr>
