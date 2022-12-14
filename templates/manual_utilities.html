@@ -26,12 +26,13 @@
 			<li><span class="tag">ft-u-no</span>: <span class="ft-no-u">no underline</span></li>
 			<li><span class="tag">ft-upper</span>: <span class="ft-upper">Uppercase</span></li>
 			<li><span class="tag">ft-lower</span>: <span class="ft-lower">LOWERCASE</span></li>
+			<li><span class="tag">ft-notrs</span>: <span class="ft-upper"><span class="ft-notrs">No transformation</span></span></li>
 			<li><span class="tag">ft-nowrap</span>: <span class="ft-nowrap">single line text</span></li>
 		</ul>
 	</div>
 	<div>
 		<h5>Sizes</h5>
-		ft-<span class="tag">[0-10]</span><span class="tag">{-[1-9]}</span>-<span class="tag">em/rem</span><br><br>
+		ft-<span class="tag">[0-10]</span><span class="tag">{-[1-9]}</span>-<span class="tag">em|rem</span><br><br>
 		<i>Examples:</i> <br>
 		<span class="tag">ft-2-rem</span> for a 2rem font size<br>
 		<span class="tag">ft-1-2-em</span> for a 1.2em font size
@@ -64,18 +65,21 @@
 		<li><span class="tag">no-transition</span>: nullify existing transition <i class="fas fa-exclamation-triangle ft-error"></i></li>
 		<li><span class="tag">no-overflow</span>: apply overflow hidden</li>
 		<li><span class="tag">hidden</span>: hide element <i class="fas fa-exclamation-triangle ft-error"></i></li>
-		<li>hidden-<span class="tag">breakpoint</span>: hide element at a specific breakpoint</li>
+		<li><span class="tag">hidden-[breakpoint]</span>: hide element at a specific breakpoint</li>
 		<li><span class="tag">ellipsis</span>: apply ellipsis to the element's text</li>
 		<li><span class="tag">center</span>: center an element</li>
 		<li><span class="tag">center-block</span>: center an element and display as block</li>
+		<li><span class="tag">overflow-[hidden|visible|auto]</span>: set element's overflow property</li>
 	</ul>
 	<ul>
+		<li><span class="tag">txt-[left|center|right]</span>: set element's text alignment</li>
 		<li><span class="tag">fl-left</span>: float left</li>
 		<li><span class="tag">fl-right</span>: float right</li>
 		<li><span class="tag">clear-left</span></li>
 		<li><span class="tag">clear-right</span></li>
-		<li><span class="tag">clear</span>: clear both</li>
+		<li><span class="tag">clear</span>: clear left and right</li>
 		<li><span class="tag">clear-after</span>: append a clearing element after</li>
 		<li><span class="tag">clear-before</span>: append a clearing element before</li>
+		<li><span class="tag">pos-relative</span>: set element's position to relative</li>
 	</ul>
 </div>
