@@ -2,7 +2,7 @@ module.exports = function(app){
 	var Documentation = Object.getPrototypeOf(app).Documentation = new app.Component("documentation");
 	// Documentation.debug = true;
 	Documentation.createdAt      = "2.0.0";
-	Documentation.lastUpdate     = "2.0.0";
+	Documentation.lastUpdate     = "2.3.4";
 	Documentation.version        = "1";
 	Documentation.factoryExclude = true;
 	// Documentation.loadingMsg     = "This message will display in the console when component will be loaded.";
