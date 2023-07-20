@@ -2,12 +2,12 @@ module.exports = function(app){
 	var Documentation = Object.getPrototypeOf(app).Documentation = new app.Component("documentation");
 	// Documentation.debug = true;
 	Documentation.createdAt      = "2.0.0";
-	Documentation.lastUpdate     = "2.3.4";
+	Documentation.lastUpdate     = "2.3.5";
 	Documentation.version        = "1";
 	Documentation.factoryExclude = true;
 	// Documentation.loadingMsg     = "This message will display in the console when component will be loaded.";
 
-	var arrManuals = ['utilities','margin-padding','backgrounds','borders','opacity','flex','grid','images','buttons'];
+	var arrManuals = ['utilities','margin-padding','backgrounds','borders','opacity','flex','grid','images','buttons','functions-mixins'];
 	if(app.components.includes('modalFW'))
 	    arrManuals.push('modalFW');
 	Documentation.prototype.onCreate = function(){

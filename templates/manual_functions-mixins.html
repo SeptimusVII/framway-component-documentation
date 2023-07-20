@@ -1,0 +1,64 @@
+<p>
+	Sass mixins and custom functions are used in sass files to help on developing your features.
+	While functions gets a classical use (calling their name followed by parenthesis containing - or not - various parameters), Mixins are quite different. They must be precided with the keyword <i>@include</i>, like this: <span class="tag">@include mixinName([parameters])</span><br>
+   They usually compile large and complex css instructions into a simple call, and are being directly inserted in the css selector the instruction is written in.
+</p>
+<h2>Functions</h2>
+<ul class="m-bottom">
+	<li><span class="tag">str-replace($string, $search, $replace: '')</span></li>
+	<li>
+		<span class="tag">contrastFW($color1, $color2)</span>
+		<p>
+			Algorithm searching for the best contrast between <span class="tag">color1</span> and <span class="tag">color2</span>, by recursively altering <span class="tag">color1</span> until a satisfying constrast is found. It finally return the altered result of <span class="tag">color1</span>.<br>
+			Be aware that this could lead to important alterations of the base color. For example, comparing a dark blue on black will could net you a bright white where there is not so much left of the original blue.
+		</p>
+	</li>
+</ul>
+<h2>Mixins</h2>
+<ul class="m-bottom">
+	<li>
+		<span class="tag">media-max($breakpoint){[style]}</span>
+		<p>
+			Write css into a media query acting below the <span class="tag">breakpoint</span> provided. <span class="tag">breakpoint</span> must be an alias used in the <span class="tag">breakpoints</span> config array.
+		</p>
+	</li>
+	<li>
+		<span class="tag">media-min($breakpoint){[style]}</span>
+		<p>
+			Write css into a media query acting above the <span class="tag">breakpoint</span> provided. <span class="tag">breakpoint</span> must be an alias used in the <span class="tag">breakpoints</span> config array.
+		</p>
+	</li>
+	<li>
+		<span class="tag">media-mm($breakpointMin,$breakpointMax){[style]}</span>
+		<p>
+			Write css into a media query acting between <span class="tag">breakpointMin</span> and <span class="tag">breakpointMax</span>. <span class="tag">breakpointMin</span> and <span class="tag">breakpointMax</span> must be an alias used in the <span class="tag">breakpoints</span> config array.
+		</p>
+	</li>
+	<li>
+		<span class="tag">linear-grad($colorsMap,$direction : 'to right')</span>
+		<p>
+			Elaborate a linear gradient background from a provided color map. Example of a color map:<br>
+			<span class="tag">
+				(<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;(green,5%,0.75),<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;(#E6E6E6,50%,0.05),<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;($primary,110%,0.2),<br>
+				)
+			</span> 
+		</p>
+	</li>
+	<li>
+		<span class="tag">ellipsis()</span>
+		<p>Apply an ellipsis text overflow on a single line of text</p>
+	</li>
+	<li>
+		<span class="tag">multi-ellipsis($font-size: 1em, $line-height: 1, $lines-to-show: 1)</span>
+		<p>
+			Apply an ellipsis text overflow on multiple lines of text, defined by the parameters provided
+		</p>
+	</li>
+	<li>
+		<span class="tag">lastChildNoMargin()</span>
+		<p>Apply a <span class="tag">margin-bottom: 0;</span> on the direct last child of the current element</p>
+	</li>
+</ul>
