@@ -14,7 +14,7 @@
 		font-family: monospace;
 		font-size: 0.9em;
 	}
-	pre.tag{overflow: visible; white-space: normal;}
+	pre.tag{overflow: auto; white-space: normal; max-width: 100%;}
 	.table-responsive .table{width: auto; min-width: 100%;}
 	.table.block-std{border: 0;}
 }
