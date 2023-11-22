@@ -35,6 +35,10 @@ module.exports = function(app){
 		}));
 
 		doc.$el.html(doc.$body);
+	    doc.$body.find('pre.tag').on('click',function(){
+	     	if(app.utils.copyToClipboard(this))
+	        	notif_fade.success('Copied to clipboard !');
+		});
 		if (typeof app.updateUrlNavigation != 'undefined') {
 			doc.$body.find('.tabs__nav button').on('click',function(){
 				if (doc.$el.parent('.tab').hasClass('active'))
