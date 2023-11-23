@@ -3,7 +3,7 @@ module.exports = function(app){
 	// Documentation.debug = true;
 	Documentation.createdAt      = "2.0.0";
 	Documentation.lastUpdate     = "2.4.2";
-	Documentation.version        = "1.1.0";
+	Documentation.version        = "1.1.1";
 	Documentation.factoryExclude = true;
 	// Documentation.loadingMsg     = "This message will display in the console when component will be loaded.";
 
@@ -35,9 +35,11 @@ module.exports = function(app){
 		}));
 
 		doc.$el.html(doc.$body);
-	    doc.$body.find('pre.tag').on('click',function(){
-	     	if(app.utils.copyToClipboard(this))
+	    doc.$body.find('.copy').on('click',function(){
+	    	this.classList.remove('copy');
+	     	if(app.utils.copyToClipboard(this,true))
 	        	notif_fade.success('Copied to clipboard !');
+	    	this.classList.add('copy');
 		});
 		if (typeof app.updateUrlNavigation != 'undefined') {
 			doc.$body.find('.tabs__nav button').on('click',function(){
