@@ -1,23 +1,73 @@
 <h2>Syntax</h2>
 <div class="m-bottom">
-	img-container r_<span class="tag">ratioValue</span> <span class="tag">effectClass</span><br>
-	<!-- <span class="tag">zoomin</span> <span class="tag">zoomout</span> <span class="tag">fadetocolor</span> <span class="tag">fadetogrey</span> -->
+ r_<span class="tag">ratioValue</span> fit--<span class="tag">fittingValue</span> img--<span class="tag">position</span><br>
 </div>
 <h2>Example</h2>
-<div class="m-bottom">
-	<pre class="tag m-bottom">
-		<div class="img-container r_16-9 zoomin fadetogrey center w-50"><img src="https://picsum.photos/500/300" alt=""></div>
-	</pre>
-	<div class="img-container r_16-9 zoomin fadetogrey center w-50"><img src="https://picsum.photos/500/300" alt=""></div>
+<i class="ft-grey ft-0-8-em">
+  Click on any sample on this page to copy its html code to clipboard
+</i>
+<div class="d-grid cols-autofit gap-2 m-y-x2 ft-0-7-em" style="--griditem-minwidth: 200px;">
+  <div>
+    img alone default<br>
+    <img src="https://picsum.photos/300/200" class="copy">
+  </div>
+  <div>
+    img alone 1:1<br>
+    <img src="https://picsum.photos/300/200" class="r_1-1 copy">
+  </div>
+  <div>
+    img alone 4:3<br>
+    <img src="https://picsum.photos/300/200" class="r_4-3 copy">
+  </div>
+  <div>
+    img alone 16:9<br>
+    <img src="https://picsum.photos/300/200" class="r_16-9 copy">
+  </div>
+  <div>
+    img alone 2:1<br>
+    <img src="https://picsum.photos/300/200" class="r_2-1 copy">
+  </div>
+</div>
+<div class="d-grid cols-autofit gap-2 m-y-x2 ft-0-7-em" style="--griditem-minwidth: 200px;">
+  <div>
+    img-container default<br>
+    <div class="img-container copy">
+      <img src="https://picsum.photos/300/200">
+    </div>
+  </div>
+  <div>
+    img-container 1:1<br>
+    <div class="img-container r_1-1 copy">
+      <img src="https://picsum.photos/300/200">
+    </div>
+  </div>
+  <div>
+    img-container 4:3<br>
+    <div class="img-container r_4-3 copy">
+      <img src="https://picsum.photos/300/200">
+    </div>
+  </div>
+  <div>
+    img-container 16:9<br>
+    <div class="img-container r_16-9 copy">
+      <img src="https://picsum.photos/300/200">
+    </div>
+  </div>
+  <div>
+    img-container 2:1<br>
+    <div class="img-container r_2-1 copy">
+      <img src="https://picsum.photos/300/200">
+    </div>
+  </div>
 </div>
 <h2>Rules</h2>
 <div class="m-bottom">
   <ul class="m-top">
     <li class="m-bottom">
-      img elements need to be wrapped in a div with the <span class="tag">img-container</span> class. This class get by default 100% of the parent's width. You can counter this by adding a <span class="tag">width</span> utility class.
+      img elements can be wrapped in an element with the <span class="tag">img-container</span> class. By default this class gets 100% of the parent's width. This can be countered by adding a <span class="tag">width</span> utility class. Use <span class="tag">w-fit</span> class so the container fits the img natural width.
     </li>
     <li class="m-bottom">
-    	To apply a specific ratio to the picture, add a ratio class to the <span class="tag">img-container</span>:
+    	To apply a specific ratio to the picture, add a ratio class to the <span class="tag">img</span> or <span class="tag">img-container</span>:
     	<ul>
     		<li>r_16-9</li>
     		<li>r_2-1</li>
@@ -27,58 +77,135 @@
     	</ul>
     </li>
     <li class="m-bottom">
-      By default, pictures in a <span class="tag">img-container</span> will have an <span class="tag">object-fit</span> css property set to <span class="tag">cover</span>. To change this, add a fitting class: <br>
-      fit--<span class="tag">contain|scaledown|unset|none</span>      
-    </li>
-    <li class="m-bottom">
-      A picture's natural ratio can differ from its container's, resulting in truncated content. For exemple, if you set a squared picture (ratio 1:1) in an <span class="tag">img-container</span> with a 16:9 ratio, the top and bottom part of the picture will be cropped to fit the container's width:<br>
-      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
-        <div>
-          <div class="img-container r_1-1">
-            <img class="" src="https://picsum.photos/300/300" alt="">
+      You may set a ratio that differ from the image <i>natural</i> ratio. The default fitting behaviour in this case is to scale down the image if needed, meaning its size will be <u>reduced</u> until every side of it can fit in its box. This also mean that if the image is smaller than the container, it will keep its natural size. example:
+      <div class="d-grid cols-2 m-top m-bottom-x3 " style="width: 100%; max-width: 700px;">
+        <div class="alignself--center">
+          <div class="img-container r_16-9 copy">
+            <img src="https://picsum.photos/300/300">
           </div>
+          <div class="ft-i txt-center ft-0-8-em">picture is bigger than the container, so it is reduced until it fit</div>
         </div>
         <div class="alignself--center">
-          <div class="img-container r_16-9"><img src="https://picsum.photos/300/300" alt=""></div>
-          <div class="ft-i txt-center ft-0-8-em">picture doesn't fit the container, so its top and bottom are cropped to stay centered</div>
+          <div class="img-container r_16-9 copy">
+            <img class="" src="https://picsum.photos/80/80">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">picture is way smaller than the container, so it stay at natural size</div>
         </div>
       </div>
-      By default, pictures are centered in their container. You can alter the picture positionning by adding a vertical and/or an horizontal position class:
+    </li>
+    <li class="m-bottom">
+      You may want to remove the grey borders on images not fitting their containers. This can be achieved by adding a <span class="tag">no-bg</span> class:
+      <div class="d-grid cols-2 m-top m-bottom-x3 " style="width: 100%; max-width: 700px;">
+        <div class="alignself--center">
+          <div class="img-container r_16-9 copy">
+            <img src="https://picsum.photos/300/300">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">Without <span class="tag">no-bg</span></div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9 no-bg copy">
+            <img src="https://picsum.photos/300/300">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">no-bg</span></div>
+        </div>
+      </div>
+    </li>
+    <li class="m-bottom">
+      By default, pictures and <span class="tag">img-container</span> will have an <span class="tag">object-fit</span> css property set to <span class="tag">scale-down</span>. To change this, add a fitting class: <br>
+      fit--<span class="tag">cover|contain|scaledown|unset|none</span>
+      <div class="d-grid cols-autofit m-top m-bottom-x3" style="max-width: 1200px; --griditem-minwidth: 260px;">
+        <div class="alignself--center">
+          <div class="img-container r_16-9 copy">
+            <img src="https://picsum.photos/250/250">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">Natural</div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9 fit--contain copy">
+            <img src="https://picsum.photos/250/250">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--contain</span></div>
+        </div>
+        <div class="alignself--center">
+          <div class="img-container r_16-9 fit--cover copy">
+            <img src="https://picsum.photos/250/250">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--cover</span></div>
+        </div>
+      </div> 
+    </li>
+
+
+    <li>
+      When using <span class="tag">fit--cover</span> class, the picture is truncated to fill the box.By default, pictures are centered in their container. You can alter the picture positionning by adding a vertical and/or an horizontal position class:<br>
       img--<span class="tag">top|center|bottom</span> img--<span class="tag">left|center|right</span> <br>
-      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
-        <div>
-          <div class="img-container r_1-1">
-            <img class="" src="https://picsum.photos/300/300" alt="">
+      <div class="d-grid cols-autofit m-top m-bottom-x3" style="max-width: 1200px; --griditem-minwidth: 260px;">
+        <div class="alignself--center">
+          <div class="img-container r_16-9 fit--cover copy">
+            <img src="https://picsum.photos/450/450">
           </div>
+          <div class="ft-i txt-center ft-0-8-em">A square image set to <span class="tag">fit--cover</span> in a 16:9 container</div>
         </div>
         <div class="alignself--center">
-          <div class="img-container r_16-9 img--bottom"><img src="https://picsum.photos/300/300" alt=""></div>
-          <div class="ft-i txt-center ft-0-8-em">with img--bottom class</div>
-        </div>
-      </div>
-      <div class="d-grid cols-2 m-y-x3 center" style="width: 100%; max-width: 700px;">
-        <div>
-          <div class="img-container r_1-1">
-            <img class="" src="https://picsum.photos/300/300" alt="">
+          <div class="img-container r_16-9 fit--cover copy">
+            <img src="https://picsum.photos/450/450">
           </div>
+          <div class="ft-i txt-center ft-0-8-em">Same image, with <span class="tag">img--top</span></div>
         </div>
         <div class="alignself--center">
-          <div class="img-container r_16-9 img--top"><img src="https://picsum.photos/300/300" alt=""></div>
-          <div class="ft-i txt-center ft-0-8-em">with img--top class</div>
+          <div class="img-container r_16-9 fit--cover img--bottom copy">
+            <img src="https://picsum.photos/450/450">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">Same image, with <span class="tag">img--bottom</span></div>
         </div>
-      </div>
+      </div> 
     </li>
+
+    
     <li class="m-bottom">
-      Pictures can be rounded by adding the <span class="tag">rounded-circle</span> class to the container. Be aware that this will force a 1:1 ratio on the picture:
-      <div class="img-container r_1-1 w-15 r_16-9 m-y-x3 rounded-circle center"><img src="https://picsum.photos/300/300" alt=""></div>
+      Pictures can be rounded by adding the <span class="tag">rounded-circle</span> class to the container. Be aware that this will force a 1:1 ratio on the picture, so the best practice is to use a square image, or set a <span class="tag">fit--cover</span>:<br>
+      <div class="d-grid cols-autofit m-top m-bottom-x3 gap-2" style="max-width: 1200px; --griditem-minwidth: 260px;">
+        <div class="alignself--center justifyself--center">
+          <img src="https://picsum.photos/200/150" class="img-container rounded-circle copy">
+          <div class="ft-i txt-center ft-0-8-em">Natural</div>
+        </div>
+        <div class="alignself--center justifyself--center">
+          <img src="https://picsum.photos/200/150" class="img-container fit--contain rounded-circle copy">
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--contain</span></div>
+        </div>
+        <div class="alignself--center justifyself--center">
+          <img src="https://picsum.photos/200/150" class="img-container fit--cover rounded-circle copy">
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--cover</span></div>
+        </div>
+      </div> 
+      <div class="d-grid cols-autofit m-top m-bottom-x3 gap-2" style="max-width: 1200px; --griditem-minwidth: 260px;">
+        <div class="alignself--center justifyself--center">
+          <div class="img-container rounded-circle copy">
+            <img src="https://picsum.photos/300/200">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">Natural, wrap in <span class="tag">img-container</span></div>
+        </div>
+        <div class="alignself--center justifyself--center">
+          <div class="img-container rounded-circle fit--contain copy">
+            <img src="https://picsum.photos/300/200">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--contain</span></div>
+        </div>
+        <div class="alignself--center justifyself--center">
+          <div class="img-container rounded-circle fit--cover copy">
+            <img src="https://picsum.photos/300/200">
+          </div>
+          <div class="ft-i txt-center ft-0-8-em">With <span class="tag">fit--cover</span></div>
+        </div>
+      </div>
     </li>
     <li class="m-bottom">
       <span class="tag">grayscale</span> class add a basic grey filter to the picture
     </li>
     <li class="m-bottom">
-    	You can define basic effects on hover, by adding an effect class to the <span class="tag">img-container</span>:
+    	You can define basic effects on hover, by adding an effect class:
     	<ul>
-    		<li><span class="tag">zoomin</span><span class="tag">zoomout</span></li>
+    		<li><span class="tag">zoomin</span><span class="tag">zoomout</span> (only works on a <span class="tag">img-container</span> wrapper)</li>
     		<li><span class="tag">fadetocolor</span><span class="tag">fadetogrey</span></li>
     	</ul>
     </li>
